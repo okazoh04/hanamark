@@ -30,6 +30,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   updateRecentMenu(config.recent_files || []);
 
   document.getElementById("btn-open").addEventListener("click", openFileDialog);
+  document.getElementById("btn-print").addEventListener("click", () => window.print());
 });
 
 // ── テーマセレクター初期化 ─────────────────────────────────────────

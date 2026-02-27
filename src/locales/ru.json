@@ -3,5 +3,6 @@
   "btnRecent": "Недавние",
   "welcomeMsg": "Откройте файл Markdown",
   "errorOpen": "Не удалось открыть файл",
-  "dropFile": "Перетащите файл сюда"
+  "dropFile": "Перетащите файл сюда",
+  "btnPrint": "Печать"
 }

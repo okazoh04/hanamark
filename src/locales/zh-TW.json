@@ -3,5 +3,6 @@
   "btnRecent": "最近",
   "welcomeMsg": "請開啟一個 Markdown 檔案",
   "errorOpen": "無法開啟檔案",
-  "dropFile": "將檔案拖放到此處"
+  "dropFile": "將檔案拖放到此處",
+  "btnPrint": "列印"
 }

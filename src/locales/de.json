@@ -3,5 +3,6 @@
   "btnRecent": "Zuletzt",
   "welcomeMsg": "Öffnen Sie eine Markdown-Datei",
   "errorOpen": "Datei konnte nicht geöffnet werden",
-  "dropFile": "Datei hier ablegen"
+  "dropFile": "Datei hier ablegen",
+  "btnPrint": "Drucken"
 }

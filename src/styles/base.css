@@ -360,3 +360,37 @@ body.drag-over::after {
   border-radius: 12px;
   margin: 16px;
 }
+
+/* ── 印刷 ────────────────────────────────── */
+@media print {
+  #toolbar,
+  .copy-btn,
+  #recent-menu {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  #content {
+    margin-top: 0;
+    padding: 16px 24px;
+    max-width: none;
+  }
+
+  #content pre {
+    white-space: pre-wrap;
+    page-break-inside: avoid;
+  }
+
+  #content table,
+  #content blockquote {
+    page-break-inside: avoid;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
