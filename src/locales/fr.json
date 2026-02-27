@@ -1,0 +1,7 @@
+{
+  "btnOpen": "Ouvrir",
+  "btnRecent": "Récents",
+  "welcomeMsg": "Ouvrez un fichier Markdown pour commencer",
+  "errorOpen": "Impossible d'ouvrir le fichier",
+  "dropFile": "Déposez le fichier ici"
+}

@@ -12,7 +12,9 @@ let currentFilePath = null;
 window.addEventListener("DOMContentLoaded", async () => {
   const { invoke } = window.__TAURI__.core;
 
+  await window.i18n.initI18n();
   initThemeSelector();
+  initLangSelector();
   initDragDrop();
   await initFileWatcher();
 
@@ -42,6 +44,22 @@ function initThemeSelector() {
   sel.addEventListener("change", async () => {
     await loadTheme(sel.value);
     await saveState({ last_theme: sel.value });
+  });
+}
+
+// ── 言語セレクター初期化 ───────────────────────────────────────────
+function initLangSelector() {
+  const sel = document.getElementById("lang-select");
+  const { SUPPORTED, LANG_NAMES, getCurrentLang } = window.i18n;
+  SUPPORTED.forEach((lang) => {
+    const opt = document.createElement("option");
+    opt.value = lang;
+    opt.textContent = LANG_NAMES[lang];
+    sel.appendChild(opt);
+  });
+  sel.value = getCurrentLang();
+  sel.addEventListener("change", async () => {
+    await window.i18n.setLanguage(sel.value);
   });
 }
 
@@ -88,7 +106,7 @@ async function loadMarkdownFile(path) {
   } catch (e) {
     console.error("ファイル読み込み失敗:", e);
     document.getElementById("content").innerHTML =
-      `<p style="color:red">ファイルを開けませんでした: ${e}</p>`;
+      `<p style="color:red">${window.i18n.t("errorOpen")}: ${e}</p>`;
   }
 }
 
@@ -117,7 +135,8 @@ function updateRecentMenu(recentFiles) {
   if (!btn) {
     btn = document.createElement("button");
     btn.id = "btn-recent";
-    btn.textContent = "最近";
+    btn.dataset.i18n = "btnRecent";
+    btn.textContent = window.i18n.t("btnRecent");
     document.getElementById("toolbar").insertBefore(
       btn,
       document.getElementById("file-name")

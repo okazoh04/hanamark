@@ -9,8 +9,11 @@
 <body>
   <!-- ツールバー -->
   <div id="toolbar">
-    <button id="btn-open">開く</button>
+    <button id="btn-open" data-i18n="btnOpen">開く</button>
     <select id="theme-select">
+      <!-- JS で動的に追加 -->
+    </select>
+    <select id="lang-select">
       <!-- JS で動的に追加 -->
     </select>
     <span id="file-name"></span>
@@ -20,10 +23,11 @@
   <main id="content">
     <div id="welcome">
       <h2>🌸 hanamark</h2>
-      <p>Markdown ファイルを開いてください</p>
+      <p data-i18n="welcomeMsg">Markdown ファイルを開いてください</p>
     </div>
   </main>
 
+  <script src="i18n.js"></script>
   <script src="renderer.js"></script>
   <script src="main.js"></script>
 </body>
