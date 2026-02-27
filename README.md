@@ -83,7 +83,7 @@ Visual Studio Build Tools 2019 以降（C++ ビルドツール）をインスト
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/yourname/hanamark.git
+git clone https://github.com/okazoh04/hanamark.git
 cd hanamark
 
 # リリースビルド
@@ -122,7 +122,8 @@ cd src-tauri && cargo clippy
 4. 言語セレクターで表示言語を切り替える（起動時はシステム言語を自動検出）
 5. エディタで Markdown を編集・保存すると、ビューワーが自動更新される
 6. コードブロックにホバーすると右上にコピーボタンが表示される
-7. 「印刷」ボタンで A4 縦・テーマカラー保持のまま印刷できる
+7. 「最近」ボタンで過去に開いたファイルの履歴からワンクリックで再オープンできる
+8. 「印刷」ボタンで A4 縦・テーマカラー保持のまま印刷できる
 
 ---
 
