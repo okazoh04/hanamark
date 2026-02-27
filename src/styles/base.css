@@ -202,6 +202,7 @@ body {
 
 /* コードブロック */
 #content pre {
+  position: relative;
   background: var(--hm-code-bg, #f6f8fa);
   border-left: 4px solid var(--hm-code-border, #888);
   border-radius: 6px;
@@ -210,6 +211,38 @@ body {
   margin: 12px 0 20px;
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--hm-code-border, #ccc);
+  border-radius: 4px;
+  background: var(--hm-bg, #fff);
+  color: var(--hm-text, #666);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+
+#content pre:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: var(--hm-table-hover, #e8e8e8);
+}
+
+.copy-btn.copied {
+  opacity: 1;
+  color: var(--hm-link-color, #080);
 }
 
 #content pre code {
