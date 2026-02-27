@@ -82,10 +82,7 @@ body {
 /* ── コンテンツエリア ─────────────────────── */
 #content {
   margin-top: 44px;
-  padding: 32px 48px 64px;
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 16px 40px 48px;
 }
 
 #welcome {
