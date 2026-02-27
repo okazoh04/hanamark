@@ -359,6 +359,11 @@ body.drag-over::after {
 }
 
 /* ── 印刷 ────────────────────────────────── */
+@page {
+  size: A4 portrait;
+  margin: 15mm 20mm;
+}
+
 @media print {
   #toolbar,
   .copy-btn,
