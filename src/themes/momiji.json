@@ -1,0 +1,43 @@
+{
+  "name": "Momiji",
+  "author": "hanamark",
+  "description": "秋の紅葉 - 深紅・バーントオレンジ・黄金色",
+  "bg": "#fdf7f2",
+  "text": "#3a1a0a",
+  "accent": "#d44820",
+  "h1": {
+    "background": "linear-gradient(135deg, #c83010 0%, #e06020 60%, #f5c060 100%)",
+    "color": "#ffffff",
+    "border": "#b02008"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #fae0c0 0%, #fdf7f2 100%)",
+    "color": "#8a2800",
+    "underline": "#d44820"
+  },
+  "h3": {
+    "color": "#a83010",
+    "underline": "#e8a060"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #c83010 0%, #e06020 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#fdf0e8",
+    "hover": "#fae0c8",
+    "border": "#e0b090"
+  },
+  "code": {
+    "bg": "#fef5ee",
+    "border": "#c83010",
+    "text": "#4a1800",
+    "hljs": "github"
+  },
+  "quote": {
+    "border": "#d44820",
+    "bg": "#fef2e8"
+  },
+  "link": {
+    "color": "#a83010",
+    "hover": "#d44820"
+  }
+}

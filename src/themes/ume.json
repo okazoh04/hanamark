@@ -1,0 +1,43 @@
+{
+  "name": "Ume",
+  "author": "hanamark",
+  "description": "早春の梅 - 臙脂・濃紅・深紫がかった白",
+  "bg": "#fdf5f7",
+  "text": "#2a1020",
+  "accent": "#b81848",
+  "h1": {
+    "background": "linear-gradient(135deg, #9a0838 0%, #c82060 60%, #f0d0dc 100%)",
+    "color": "#ffffff",
+    "border": "#880030"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #f5d0dc 0%, #fdf5f7 100%)",
+    "color": "#780028",
+    "underline": "#b81848"
+  },
+  "h3": {
+    "color": "#981038",
+    "underline": "#e0a0b8"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #9a0838 0%, #c82060 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#fdf0f3",
+    "hover": "#f8e0e8",
+    "border": "#e0b0c0"
+  },
+  "code": {
+    "bg": "#fef5f8",
+    "border": "#9a0838",
+    "text": "#500020",
+    "hljs": "github"
+  },
+  "quote": {
+    "border": "#b81848",
+    "bg": "#fef0f4"
+  },
+  "link": {
+    "color": "#880030",
+    "hover": "#b81848"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Tanpopo",
+  "author": "hanamark",
+  "description": "春の野原たんぽぽ - 明るい黄・新緑・爽やか",
+  "bg": "#fdfff0",
+  "text": "#1a2a00",
+  "accent": "#b8a800",
+  "h1": {
+    "background": "linear-gradient(135deg, #d4c000 0%, #e8d820 60%, #f8f8c0 100%)",
+    "color": "#2a2a00",
+    "border": "#a89000"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #f0f8c0 0%, #fdfff0 100%)",
+    "color": "#3a5000",
+    "underline": "#b8a800"
+  },
+  "h3": {
+    "color": "#4a6800",
+    "underline": "#d8c840"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #8ab000 0%, #b8d000 100%)",
+    "headerColor": "#1a2a00",
+    "stripe": "#f8fce0",
+    "hover": "#f0f8c0",
+    "border": "#c8d880"
+  },
+  "code": {
+    "bg": "#fafff0",
+    "border": "#a89000",
+    "text": "#2a3800",
+    "hljs": "github"
+  },
+  "quote": {
+    "border": "#b8a800",
+    "bg": "#fafff0"
+  },
+  "link": {
+    "color": "#5a8000",
+    "hover": "#7aa000"
+  }
+}

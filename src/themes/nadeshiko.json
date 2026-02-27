@@ -1,0 +1,43 @@
+{
+  "name": "Nadeshiko",
+  "author": "hanamark",
+  "description": "夏撫子 - 鮮やかなピンク・白・淡緑",
+  "bg": "#fff5f9",
+  "text": "#2a1030",
+  "accent": "#e03888",
+  "h1": {
+    "background": "linear-gradient(135deg, #c01870 0%, #e84098 60%, #ffd8ed 100%)",
+    "color": "#ffffff",
+    "border": "#a01060"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #ffd8ed 0%, #fff5f9 100%)",
+    "color": "#880858",
+    "underline": "#e03888"
+  },
+  "h3": {
+    "color": "#a82070",
+    "underline": "#f0a0cc"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #c01870 0%, #e84098 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#fff0f6",
+    "hover": "#ffdff0",
+    "border": "#f0b0d0"
+  },
+  "code": {
+    "bg": "#fff5fa",
+    "border": "#c01870",
+    "text": "#400020",
+    "hljs": "github"
+  },
+  "quote": {
+    "border": "#e03888",
+    "bg": "#fff0f6"
+  },
+  "link": {
+    "color": "#a01060",
+    "hover": "#e03888"
+  }
+}

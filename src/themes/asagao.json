@@ -1,0 +1,43 @@
+{
+  "name": "Asagao",
+  "author": "hanamark",
+  "description": "夏の朝顔 - 深青紫・紺碧・清々しい朝",
+  "bg": "#f0f4ff",
+  "text": "#0a1030",
+  "accent": "#2848c8",
+  "h1": {
+    "background": "linear-gradient(135deg, #1030b0 0%, #3058d8 60%, #c0d0f8 100%)",
+    "color": "#ffffff",
+    "border": "#0820a0"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #c8d8f8 0%, #f0f4ff 100%)",
+    "color": "#0a2090",
+    "underline": "#2848c8"
+  },
+  "h3": {
+    "color": "#1838a8",
+    "underline": "#90a8e8"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #1030b0 0%, #3058d8 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#e8eeff",
+    "hover": "#d8e4ff",
+    "border": "#a0b8e8"
+  },
+  "code": {
+    "bg": "#eef2ff",
+    "border": "#1030b0",
+    "text": "#0a1030",
+    "hljs": "atom-one-light"
+  },
+  "quote": {
+    "border": "#2848c8",
+    "bg": "#eef2ff"
+  },
+  "link": {
+    "color": "#0820a0",
+    "hover": "#2848c8"
+  }
+}

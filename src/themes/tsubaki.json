@@ -1,0 +1,43 @@
+{
+  "name": "Tsubaki",
+  "author": "hanamark",
+  "description": "冬の椿 - 深紅・常緑・白",
+  "bg": "#f5faf5",
+  "text": "#1a2e1a",
+  "accent": "#c81c1c",
+  "h1": {
+    "background": "linear-gradient(135deg, #a00010 0%, #d01818 60%, #f5f0e8 100%)",
+    "color": "#ffffff",
+    "border": "#880008"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #d8ecd8 0%, #f5faf5 100%)",
+    "color": "#1a5c1a",
+    "underline": "#c81c1c"
+  },
+  "h3": {
+    "color": "#2a6a2a",
+    "underline": "#e88080"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #1a5c1a 0%, #2e8a2e 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#eef6ee",
+    "hover": "#d8ecd8",
+    "border": "#a0c8a0"
+  },
+  "code": {
+    "bg": "#eef7ee",
+    "border": "#c81c1c",
+    "text": "#1a2e1a",
+    "hljs": "github"
+  },
+  "quote": {
+    "border": "#c81c1c",
+    "bg": "#fef5f5"
+  },
+  "link": {
+    "color": "#a00010",
+    "hover": "#c81c1c"
+  }
+}

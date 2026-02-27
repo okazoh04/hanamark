@@ -1,0 +1,43 @@
+{
+  "name": "Fuji",
+  "author": "hanamark",
+  "description": "春の藤棚 - 柔らかな紫・薄紫・白",
+  "bg": "#f8f5ff",
+  "text": "#281840",
+  "accent": "#7860b8",
+  "h1": {
+    "background": "linear-gradient(135deg, #9070c8 0%, #c0a0e8 60%, #ece0ff 100%)",
+    "color": "#1e0e38",
+    "border": "#6040a0"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #e8d8ff 0%, #f8f5ff 100%)",
+    "color": "#4a2888",
+    "underline": "#7860b8"
+  },
+  "h3": {
+    "color": "#6040a0",
+    "underline": "#c0a0e8"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #7860b8 0%, #a880e0 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#f5eeff",
+    "hover": "#ebe0ff",
+    "border": "#c0a8e0"
+  },
+  "code": {
+    "bg": "#f5f0ff",
+    "border": "#6040a0",
+    "text": "#281840",
+    "hljs": "atom-one-light"
+  },
+  "quote": {
+    "border": "#7860b8",
+    "bg": "#f5f0ff"
+  },
+  "link": {
+    "color": "#5030a0",
+    "hover": "#7860b8"
+  }
+}
