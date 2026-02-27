@@ -51,6 +51,14 @@ pub fn get_config(app: AppHandle) -> AppConfig {
     load_config(&app)
 }
 
+/// 起動時のコマンドライン引数からファイルパスを取得する
+#[tauri::command]
+pub fn get_startup_file() -> Option<String> {
+    std::env::args()
+        .skip(1)
+        .find(|a| !a.starts_with('-') && std::path::Path::new(a).exists())
+}
+
 /// 設定を保存する（ファイルを開いたとき・テーマ変更時に呼ぶ）
 #[tauri::command]
 pub fn save_app_config(

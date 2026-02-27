@@ -17,7 +17,12 @@ window.addEventListener("DOMContentLoaded", async () => {
   const config = await invoke("get_config").catch(() => ({}));
   const theme = config.last_theme || "sakura";
   await loadTheme(theme);
-  if (config.last_file) {
+
+  // コマンドライン引数で指定されたファイルを優先して開く
+  const startupFile = await invoke("get_startup_file").catch(() => null);
+  if (startupFile) {
+    await loadMarkdownFile(startupFile);
+  } else if (config.last_file) {
     await loadMarkdownFile(config.last_file);
   }
 

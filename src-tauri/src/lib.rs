@@ -29,6 +29,7 @@ pub fn run() {
             commands::stop_watch,
             commands::get_config,
             commands::save_app_config,
+            commands::get_startup_file,
         ])
         .run(tauri::generate_context!())
         .expect("error while running hanamark");
