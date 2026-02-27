@@ -1,9 +1,17 @@
+# Project plan file
+hanamark-plan.md
+
 # Rust / Cargo
 src-tauri/target/
 src-tauri/gen/
 
 # node (将来的なツール用)
 node_modules/
+
+# ide control file
+.vscode/
+.claude/
+CLAUDE.md
 
 # OS
 .DS_Store

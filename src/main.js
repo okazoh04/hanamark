@@ -133,6 +133,7 @@ function updateRecentMenu(recentFiles) {
     return;
   }
 
+  // ボタンとメニューは初回のみ作成し、イベントリスナーも初回のみ登録する
   if (!btn) {
     btn = document.createElement("button");
     btn.id = "btn-recent";
@@ -142,14 +143,23 @@ function updateRecentMenu(recentFiles) {
       btn,
       document.getElementById("file-name")
     );
-  }
-  btn.style.display = "";
 
-  if (!menu) {
     menu = document.createElement("div");
     menu.id = "recent-menu";
     document.body.appendChild(menu);
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const rect = btn.getBoundingClientRect();
+      menu.style.top = `${rect.bottom + 4}px`;
+      menu.style.left = `${rect.left}px`;
+      menu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", () => menu.classList.remove("open"));
   }
+
+  btn.style.display = "";
 
   menu.innerHTML = recentFiles
     .map(
@@ -164,16 +174,6 @@ function updateRecentMenu(recentFiles) {
       await loadMarkdownFile(recentFiles[i]);
     });
   });
-
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const rect = btn.getBoundingClientRect();
-    menu.style.top = `${rect.bottom + 4}px`;
-    menu.style.left = `${rect.left}px`;
-    menu.classList.toggle("open");
-  });
-
-  document.addEventListener("click", () => menu.classList.remove("open"));
 }
 
 // ── ファイル監視（Rust→フロントへの file_changed イベント受信）──────
