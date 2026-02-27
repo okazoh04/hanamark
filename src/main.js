@@ -1,11 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright (C) 2026 hanamark contributors
 
-const THEMES = [
-  "sakura", "himawari", "ajisai", "momiji", "ume",
-  "tsubaki", "tanpopo", "fuji", "nadeshiko", "asagao",
-];
-
 let currentFilePath = null;
 
 // ── 初期化 ──────────────────────────────────────────────────────────
@@ -13,7 +8,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const { invoke } = window.__TAURI__.core;
 
   await window.i18n.initI18n();
-  initThemeSelector();
+  await initThemeSelector();
   initLangSelector();
   initDragDrop();
   await initFileWatcher();
@@ -34,9 +29,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 // ── テーマセレクター初期化 ─────────────────────────────────────────
-function initThemeSelector() {
+async function initThemeSelector() {
+  const { invoke } = window.__TAURI__.core;
+  const themes = await invoke("list_themes");
   const sel = document.getElementById("theme-select");
-  THEMES.forEach((name) => {
+  themes.forEach((name) => {
     const opt = document.createElement("option");
     opt.value = name;
     opt.textContent = name.charAt(0).toUpperCase() + name.slice(1);

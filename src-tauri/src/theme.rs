@@ -8,8 +8,7 @@
 
 use tauri::{AppHandle, Manager};
 
-/// 組み込みテーマのファイル名一覧（拡張子なし）
-pub fn list_builtin_themes(_app: &AppHandle) -> Vec<String> {
+fn builtin_theme_names() -> Vec<String> {
     vec![
         "sakura".to_string(),
         "himawari".to_string(),
@@ -22,6 +21,11 @@ pub fn list_builtin_themes(_app: &AppHandle) -> Vec<String> {
         "nadeshiko".to_string(),
         "asagao".to_string(),
     ]
+}
+
+/// 組み込みテーマのファイル名一覧（拡張子なし）
+pub fn list_builtin_themes(_app: &AppHandle) -> Vec<String> {
+    builtin_theme_names()
 }
 
 /// 指定テーマの JSON 文字列を返す
@@ -37,4 +41,34 @@ pub fn load_theme_json(app: &AppHandle, name: &str) -> Result<String, String> {
 
     std::fs::read_to_string(&resource_path)
         .map_err(|e| format!("テーマ '{}' の読み込みに失敗: {}", name, e))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_builtin_theme_count() {
+        assert_eq!(builtin_theme_names().len(), 10);
+    }
+
+    #[test]
+    fn test_builtin_theme_names_contains_all() {
+        let themes = builtin_theme_names();
+        let expected = [
+            "sakura", "himawari", "ajisai", "momiji", "ume",
+            "tsubaki", "tanpopo", "fuji", "nadeshiko", "asagao",
+        ];
+        for name in &expected {
+            assert!(themes.contains(&name.to_string()), "テーマ '{name}' が見つからない");
+        }
+    }
+
+    #[test]
+    fn test_builtin_theme_names_no_duplicates() {
+        let themes = builtin_theme_names();
+        let mut deduped = themes.clone();
+        deduped.dedup();
+        assert_eq!(themes.len(), deduped.len());
+    }
 }

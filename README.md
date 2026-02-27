@@ -153,7 +153,7 @@ cd src-tauri && cargo clippy
 }
 ```
 
-作成したファイルを `src/themes/<name>.json` に配置し、[main.js](src/main.js) の `THEMES` 配列と [src-tauri/src/theme.rs](src-tauri/src/theme.rs) の `list_builtin_themes()` にテーマ名を追加してください。
+作成したファイルを `src/themes/<name>.json` に配置し、[src-tauri/src/theme.rs](src-tauri/src/theme.rs) の `list_builtin_themes()` にテーマ名を追加してください。
 
 ---
 

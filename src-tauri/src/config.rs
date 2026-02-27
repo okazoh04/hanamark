@@ -50,3 +50,46 @@ pub fn push_recent_file(recent: &mut Vec<String>, path: &str) {
     recent.insert(0, path.to_string());
     recent.truncate(MAX_RECENT_FILES);
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_push_first_entry() {
+        let mut recent = vec![];
+        push_recent_file(&mut recent, "/a.md");
+        assert_eq!(recent, vec!["/a.md"]);
+    }
+
+    #[test]
+    fn test_push_inserts_at_front() {
+        let mut recent = vec!["/a.md".to_string()];
+        push_recent_file(&mut recent, "/b.md");
+        assert_eq!(recent[0], "/b.md");
+        assert_eq!(recent[1], "/a.md");
+    }
+
+    #[test]
+    fn test_push_deduplicates() {
+        let mut recent = vec!["/a.md".to_string(), "/b.md".to_string()];
+        push_recent_file(&mut recent, "/b.md");
+        assert_eq!(recent, vec!["/b.md", "/a.md"]);
+    }
+
+    #[test]
+    fn test_push_duplicate_already_at_front() {
+        let mut recent = vec!["/a.md".to_string(), "/b.md".to_string()];
+        push_recent_file(&mut recent, "/a.md");
+        assert_eq!(recent, vec!["/a.md", "/b.md"]);
+    }
+
+    #[test]
+    fn test_push_enforces_max_limit() {
+        let mut recent: Vec<String> = (0..MAX_RECENT_FILES).map(|i| format!("/{i}.md")).collect();
+        push_recent_file(&mut recent, "/new.md");
+        assert_eq!(recent.len(), MAX_RECENT_FILES);
+        assert_eq!(recent[0], "/new.md");
+        assert!(!recent.contains(&format!("/{}.md", MAX_RECENT_FILES - 1)));
+    }
+}
