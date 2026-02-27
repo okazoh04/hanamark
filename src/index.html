@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hanamark</title>
+  <link rel="stylesheet" href="styles/base.css" />
+</head>
+<body>
+  <!-- ツールバー -->
+  <div id="toolbar">
+    <button id="btn-open">開く</button>
+    <select id="theme-select">
+      <!-- JS で動的に追加 -->
+    </select>
+    <span id="file-name"></span>
+  </div>
+
+  <!-- Markdown コンテンツ表示エリア -->
+  <main id="content">
+    <div id="welcome">
+      <h2>🌸 hanamark</h2>
+      <p>Markdown ファイルを開いてください</p>
+    </div>
+  </main>
+
+  <script src="renderer.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

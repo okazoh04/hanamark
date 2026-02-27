@@ -1,0 +1,43 @@
+{
+  "name": "Ajisai",
+  "author": "hanamark",
+  "description": "梅雨の紫陽花 - 紫・ラベンダー・青紫・ミストホワイト",
+  "bg": "#f5f0fb",
+  "text": "#2d1a4a",
+  "accent": "#9b70c8",
+  "h1": {
+    "background": "linear-gradient(135deg, #c4a0e8 0%, #e0d0f8 60%, #f0e8ff 100%)",
+    "color": "#3a1870",
+    "border": "#8050b0"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #e8d8f8 0%, #f5f0fb 100%)",
+    "color": "#5a2890",
+    "underline": "#9b70c8"
+  },
+  "h3": {
+    "color": "#7040a8",
+    "underline": "#c4a0e8"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #9b70c8 0%, #c4a0e8 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#f0e8fc",
+    "hover": "#e8d8f8",
+    "border": "#c4a0d8"
+  },
+  "code": {
+    "bg": "#f8f0ff",
+    "border": "#8050b0",
+    "text": "#3a1870",
+    "hljs": "atom-one-light"
+  },
+  "quote": {
+    "border": "#9b70c8",
+    "bg": "#f5eeff"
+  },
+  "link": {
+    "color": "#7040a8",
+    "hover": "#9b70c8"
+  }
+}

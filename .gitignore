@@ -1,0 +1,10 @@
+# Rust / Cargo
+src-tauri/target/
+src-tauri/gen/
+
+# node (将来的なツール用)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

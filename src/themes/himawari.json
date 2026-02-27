@@ -1,0 +1,43 @@
+{
+  "name": "Himawari",
+  "author": "hanamark",
+  "description": "夏の向日葵畑 - ビビッドイエロー・オレンジ・サンブラウン",
+  "bg": "#fffdf0",
+  "text": "#3d2a00",
+  "accent": "#f5a623",
+  "h1": {
+    "background": "linear-gradient(135deg, #f5d020 0%, #f5a623 60%, #fdf0c0 100%)",
+    "color": "#5a3000",
+    "border": "#e88000"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #fdeea0 0%, #fffdf0 100%)",
+    "color": "#7a4800",
+    "underline": "#f5a623"
+  },
+  "h3": {
+    "color": "#9a5800",
+    "underline": "#f5c870"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #f5a623 0%, #f5d020 100%)",
+    "headerColor": "#3d2a00",
+    "stripe": "#fffae0",
+    "hover": "#fef3c0",
+    "border": "#e8c870"
+  },
+  "code": {
+    "bg": "#fffbea",
+    "border": "#e88000",
+    "text": "#4a2800",
+    "hljs": "github"
+  },
+  "quote": {
+    "border": "#f5a623",
+    "bg": "#fffbea"
+  },
+  "link": {
+    "color": "#c07000",
+    "hover": "#f5a623"
+  }
+}

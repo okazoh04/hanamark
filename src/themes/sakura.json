@@ -1,0 +1,43 @@
+{
+  "name": "Sakura",
+  "author": "hanamark",
+  "description": "春の染井吉野 - 淡ピンク・桜白・若草グリーン",
+  "bg": "#fdf6f9",
+  "text": "#3d2b35",
+  "accent": "#e8a0b8",
+  "h1": {
+    "background": "linear-gradient(135deg, #f9cfe0 0%, #fde8ef 60%, #f5f0e8 100%)",
+    "color": "#8b3a5a",
+    "border": "#d96f99"
+  },
+  "h2": {
+    "background": "linear-gradient(135deg, #fde8ef 0%, #fdf6f9 100%)",
+    "color": "#a04060",
+    "underline": "#e8a0b8"
+  },
+  "h3": {
+    "color": "#b05070",
+    "underline": "#f0b8cc"
+  },
+  "table": {
+    "header": "linear-gradient(135deg, #e8a0b8 0%, #f5c8d8 100%)",
+    "headerColor": "#ffffff",
+    "stripe": "#fdf0f4",
+    "hover": "#fce4ed",
+    "border": "#e8b8c8"
+  },
+  "code": {
+    "bg": "#fef5f8",
+    "border": "#d96f99",
+    "text": "#5a2040",
+    "hljs": "github"
+  },
+  "quote": {
+    "border": "#e8a0b8",
+    "bg": "#fef0f5"
+  },
+  "link": {
+    "color": "#c05080",
+    "hover": "#e8a0b8"
+  }
+}
