@@ -287,6 +287,10 @@ body {
   margin: 4px 0;
 }
 
+#content ul > li::marker {
+  content: var(--hm-bullet, "• ");
+}
+
 /* タスクリスト */
 #content input[type="checkbox"] {
   margin-right: 6px;

@@ -47,6 +47,9 @@ function applyTheme(theme) {
     set("--hm-link-color", theme.link.color);
     set("--hm-link-hover", theme.link.hover);
   }
+  if (theme.bullet) {
+    root.style.setProperty("--hm-bullet", `"${theme.bullet}"`);
+  }
 }
 
 /**
