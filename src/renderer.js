@@ -9,6 +9,26 @@
  */
 
 /**
+ * テーマカラーを使った桜の花 SVG を CSS url() 値として生成する
+ * @param {string} petalColor - 花びらの色（CSS カラー文字列）
+ * @returns {string} CSS の url("data:image/svg+xml,...") 文字列
+ */
+function makeBulletSvg(petalColor) {
+  const petals = [0, 72, 144, 216, 288]
+    .map(deg =>
+      `<ellipse cx="0" cy="-3.5" rx="2.2" ry="4" fill="${petalColor}" transform="rotate(${deg})"/>`
+    )
+    .join("");
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">` +
+    `<g transform="translate(10,10)">` +
+    petals +
+    `<circle cx="0" cy="0" r="2" fill="white" opacity="0.85"/>` +
+    `</g></svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+}
+
+/**
  * テーマ JSON を CSS カスタムプロパティとして document.documentElement に適用する
  * @param {Object} theme
  */
@@ -54,6 +74,8 @@ function applyTheme(theme) {
     set("--hm-link-color", theme.link.color);
     set("--hm-link-hover", theme.link.hover);
   }
+
+  root.style.setProperty("--hm-bullet-svg", makeBulletSvg(theme.accent || "#888888"));
 }
 
 /**

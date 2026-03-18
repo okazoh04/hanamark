@@ -41,6 +41,19 @@ window.addEventListener("DOMContentLoaded", async () => {
 });
 
 // ── テーマセレクター初期化 ─────────────────────────────────────────
+const THEME_FLOWERS = {
+  sakura:    "🌸",
+  ume:       "🌸",
+  tsubaki:   "🌺",
+  ajisai:    "💐",
+  asagao:    "🌺",
+  fuji:      "🪻",
+  himawari:  "🌻",
+  tanpopo:   "🌼",
+  nadeshiko: "💮",
+  momiji:    "🍁",
+};
+
 async function initThemeSelector() {
   const { invoke } = window.__TAURI__.core;
   const themes = await invoke("list_themes");
@@ -48,7 +61,8 @@ async function initThemeSelector() {
   themes.forEach((name) => {
     const opt = document.createElement("option");
     opt.value = name;
-    opt.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+    const flower = THEME_FLOWERS[name] || "🌸";
+    opt.textContent = flower + " " + name.charAt(0).toUpperCase() + name.slice(1);
     sel.appendChild(opt);
   });
   sel.addEventListener("change", async () => {

@@ -282,13 +282,34 @@ body {
 }
 
 /* リスト */
-#content ul, #content ol {
+#content ul {
+  list-style: none;
+  padding-left: 2em;
+  margin: 0 0 1em;
+}
+
+#content ol {
   padding-left: 1.8em;
   margin: 0 0 1em;
 }
 
 #content li {
   margin: 4px 0;
+}
+
+/* 箇条書きマーカー：テーマカラーの桜SVG */
+#content ul li:not(:has(> input[type="checkbox"]))::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  margin-left: -1.4em;
+  background-image: var(--hm-bullet-svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: -0.15em;
 }
 
 /* タスクリスト */
