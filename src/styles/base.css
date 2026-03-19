@@ -89,9 +89,28 @@ body {
 /* ── コンテンツエリア ─────────────────────── */
 #content {
   margin-top: 44px;
-  padding: 16px 40px 48px;
+  padding: 16px 40px 64px;
 }
 
+
+/* ── フッター ──────────────────────────── */
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: var(--hm-bg, #fff);
+  border-top: 1px solid var(--hm-accent, #ccc);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 11px;
+  color: var(--hm-text, #999);
+  opacity: 0.6;
+  z-index: 100;
+}
 #welcome {
   display: flex;
   flex-direction: column;
@@ -478,7 +497,8 @@ mark.search-hl.current {
   #toolbar,
   .copy-btn,
   #recent-menu,
-  #search-bar {
+  #search-bar,
+  #footer {
     display: none !important;
   }
 
