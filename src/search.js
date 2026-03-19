@@ -19,6 +19,7 @@ const Search = (() => {
     const input = document.getElementById("search-input");
     input.focus();
     input.select();
+    if (input.value) search(input.value, false);
   }
 
   function close() {
@@ -32,12 +33,13 @@ const Search = (() => {
 
   function clearHighlights() {
     document.getElementById("content").querySelectorAll("mark.search-hl").forEach((mark) => {
-      mark.parentNode.replaceChild(document.createTextNode(mark.textContent), mark);
-      mark.parentNode.normalize();
+      const parent = mark.parentNode;
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      parent.normalize();
     });
   }
 
-  function search(query) {
+  function search(query, scroll = true) {
     clearHighlights();
     matches = [];
     currentIndex = -1;
@@ -48,7 +50,9 @@ const Search = (() => {
     }
 
     const content = document.getElementById("content");
-    const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+    const caseSensitive = document.getElementById("search-case").checked;
+    const flags = caseSensitive ? "g" : "gi";
+    const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), flags);
 
     const walker = document.createTreeWalker(content, NodeFilter.SHOW_TEXT);
     const textNodes = [];
@@ -82,7 +86,11 @@ const Search = (() => {
 
     if (matches.length > 0) {
       currentIndex = 0;
-      scrollToMatch(0);
+      if (scroll) {
+        scrollToMatch(0);
+      } else {
+        matches[0].classList.add("current");
+      }
     }
     updateCount();
   }
@@ -146,14 +154,20 @@ const Search = (() => {
     });
 
     const input = document.getElementById("search-input");
-    input.addEventListener("input", () => search(input.value));
+    let composing = false;
+    input.addEventListener("compositionstart", () => { composing = true; });
+    input.addEventListener("compositionend", () => { composing = false; search(input.value); });
+    input.addEventListener("input", () => { if (!composing) search(input.value); });
     input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
+      if (e.key === "Enter" && !composing) {
         e.preventDefault();
         e.shiftKey ? prev() : next();
       }
     });
 
+    document.getElementById("search-case").addEventListener("change", () => {
+      if (input.value) search(input.value);
+    });
     document.getElementById("search-prev").addEventListener("click", prev);
     document.getElementById("search-next").addEventListener("click", next);
     document.getElementById("search-close").addEventListener("click", close);

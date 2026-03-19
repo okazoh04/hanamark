@@ -453,6 +453,22 @@ body.drag-over::after {
   opacity: 1;
 }
 
+#search-case-label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--hm-text, #666);
+  opacity: 0.7;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+#search-case-label:has(#search-case:checked) {
+  opacity: 1;
+  color: var(--hm-accent, #c0392b);
+}
 #search-bar button {
   width: 26px;
   height: 26px;
