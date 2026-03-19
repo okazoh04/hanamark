@@ -16,8 +16,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   await window.i18n.initI18n();
   await initThemeSelector();
+  await window.i18n.initI18n();
+  await initThemeSelector();
   initLangSelector();
   initDragDrop();
+  Search.init();
   await initFileWatcher();
 
   // 前回の状態を復元

@@ -386,6 +386,88 @@ body.drag-over::after {
   margin: 16px;
 }
 
+
+/* ── 検索バー ──────────────────────────── */
+#search-bar {
+  display: none;
+  position: fixed;
+  top: 44px;
+  right: 16px;
+  z-index: 150;
+  align-items: center;
+  gap: 4px;
+  background: var(--hm-bg, #fff);
+  border: 1px solid var(--hm-accent, #ccc);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 6px 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+#search-input {
+  width: 220px;
+  padding: 4px 8px;
+  border: 1px solid var(--hm-accent, #ccc);
+  border-radius: 4px;
+  background: var(--hm-bg, #fff);
+  color: var(--hm-text, #333);
+  font-size: 13px;
+  outline: none;
+}
+
+#search-input:focus {
+  border-color: var(--hm-accent, #888);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--hm-accent, #888) 25%, transparent);
+}
+
+#search-count {
+  font-size: 12px;
+  color: var(--hm-text, #666);
+  opacity: 0.7;
+  min-width: 70px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#search-count.no-match {
+  color: #c0392b;
+  opacity: 1;
+}
+
+#search-bar button {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--hm-accent, #ccc);
+  border-radius: 4px;
+  background: var(--hm-table-hover, #e8e8e8);
+  color: var(--hm-text, #333);
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-bar button:hover {
+  background: var(--hm-accent, #ccc);
+  color: #fff;
+}
+
+/* 検索ハイライト */
+mark.search-hl {
+  background: #ffe066;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+mark.search-hl.current {
+  background: var(--hm-accent, #f0820f);
+  color: #fff;
+  outline: 2px solid var(--hm-accent, #f0820f);
+  outline-offset: 1px;
+}
 /* ── 印刷 ────────────────────────────────── */
 @page {
   size: A4 portrait;
@@ -395,8 +477,15 @@ body.drag-over::after {
 @media print {
   #toolbar,
   .copy-btn,
-  #recent-menu {
+  #recent-menu,
+  #search-bar {
     display: none !important;
+  }
+
+  mark.search-hl {
+    background: none;
+    color: inherit;
+    outline: none;
   }
 
   body {
