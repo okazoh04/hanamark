@@ -16,8 +16,6 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   await window.i18n.initI18n();
   await initThemeSelector();
-  await window.i18n.initI18n();
-  await initThemeSelector();
   initLangSelector();
   initDragDrop();
   Search.init();
@@ -36,14 +34,14 @@ window.addEventListener("DOMContentLoaded", async () => {
     await loadMarkdownFile(config.last_file);
   }
 
+  // 最近開いたファイルのメニューを初期化
+  updateRecentMenu(config.recent_files || []);
+
   document.getElementById("btn-open").addEventListener("click", openFileDialog);
   document.getElementById("btn-print").addEventListener("click", () => window.print());
 
-  const version = await window.__TAURI__.app.getVersion().catch(() => null);
+  const version = await invoke("plugin:app|version").catch(() => null);
   if (version) document.getElementById("footer-version").textContent = `v${version}`;
-});
-  document.getElementById("btn-open").addEventListener("click", openFileDialog);
-  document.getElementById("btn-print").addEventListener("click", () => window.print());
 });
 
 // ── テーマセレクター初期化 ─────────────────────────────────────────
