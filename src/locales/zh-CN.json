@@ -4,5 +4,6 @@
   "welcomeMsg": "请打开一个 Markdown 文件",
   "errorOpen": "无法打开文件",
   "dropFile": "拖放文件到此处",
-  "btnPrint": "打印"
+  "btnPrint": "打印",
+  "btnClose": "关闭"
 }

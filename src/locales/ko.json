@@ -4,5 +4,6 @@
   "welcomeMsg": "Markdown 파일을 열어주세요",
   "errorOpen": "파일을 열 수 없습니다",
   "dropFile": "파일을 여기에 놓으세요",
-  "btnPrint": "인쇄"
+  "btnPrint": "인쇄",
+  "btnClose": "닫기"
 }

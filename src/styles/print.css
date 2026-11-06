@@ -1,0 +1,133 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-only
+ *
+ * Copyright (c) 2026 okazoh04
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 3.
+ * See the LICENSE file for details.
+ */
+
+/* Paged.js が生成するページのレイアウト・ページ番号 */
+@page {
+  size: A4;
+  margin: 20mm 18mm 24mm 18mm;
+
+  @bottom-center {
+    content: counter(page) " / " counter(pages);
+    font-size: 9pt;
+    color: #888888;
+  }
+}
+
+/* 画面上のプレビュー表示（用紙を並べたイメージ） */
+#print-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  background: #6b6b6b;
+}
+
+#print-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #3a3a3a;
+}
+
+#print-toolbar button {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#print-go {
+  background: var(--hm-accent, #4a90d9);
+  color: #fff;
+}
+
+#print-close {
+  background: #888;
+  color: #fff;
+}
+
+#print-pages {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pagedjs_page {
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.pagedjs_margin-bottom-center {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+
+/* キリのいいところで改ページする */
+#content h1,
+#content h2,
+#content h3,
+#content h4 {
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+#content p,
+#content li {
+  orphans: 3;
+  widows: 3;
+}
+
+#content pre,
+#content table,
+#content blockquote,
+#content img {
+  break-inside: avoid;
+}
+
+#content .copy-btn {
+  display: none;
+}
+
+/* 実際の印刷時：画面プレビュー用の固定オーバーレイ・スクロール・背景・影・余白を消す */
+@media print {
+  #print-root {
+    position: static;
+    background: none;
+  }
+
+  #print-toolbar {
+    display: none;
+  }
+
+  #print-pages {
+    overflow: visible;
+    padding: 0;
+    gap: 0;
+  }
+
+  .pagedjs_page {
+    box-shadow: none;
+  }
+
+  /* Paged.js はページ内レイアウトの内部実装に CSS 多段組（column-width）を
+     使っている。ネイティブ印刷のページ分割処理はカラムがあふれると新しい
+     物理ページを生成するため、境界付近のわずかな端数差でページごとに空白
+     ページが挟まってしまう（WebKitGTK で確認）。印刷時のみ単カラムに戻す。 */
+  .pagedjs_page_content {
+    column-width: auto !important;
+  }
+}

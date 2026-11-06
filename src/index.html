@@ -14,6 +14,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>hanamark</title>
   <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/print.css" />
+  <!--
+    Paged.js は print.css の @page マージンを読んで .pagedjs_page を余白込みの
+    A4フルサイズで描画する。このインライン<style>は Paged.js の preview() には
+    渡さない（fetch対象は styles/base.css・print.css の2つのみ）ため描画には影響
+    しないが、実際の印刷（ネイティブページング）にはCSSの後勝ちで適用され、
+    print.css側のマージンを打ち消す。これがないと同じマージンが二重適用され、
+    各ページの内容がわずかに溢れて1論理ページごとに空白ページが挟まる。
+  -->
+  <style>@page { margin: 0; }</style>
 </head>
 <body>
   <!-- ツールバー -->
@@ -52,6 +62,17 @@
     <span id="footer-version"></span>
   </footer>
 
+  <!-- 印刷プレビュー（Paged.js によるページ分割・ページ番号付与） -->
+  <div id="print-root">
+    <div id="print-toolbar">
+      <button id="print-go" data-i18n="btnPrint">印刷</button>
+      <button id="print-close" data-i18n="btnClose">閉じる</button>
+    </div>
+    <div id="print-pages"></div>
+  </div>
+
+  <script>window.PagedConfig = { auto: false };</script>
+  <script src="vendor/paged.polyfill.min.js"></script>
   <script src="i18n.js"></script>
   <script src="renderer.js"></script>
   <script src="search.js"></script>

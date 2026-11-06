@@ -38,7 +38,15 @@ window.addEventListener("DOMContentLoaded", async () => {
   updateRecentMenu(config.recent_files || []);
 
   document.getElementById("btn-open").addEventListener("click", openFileDialog);
-  document.getElementById("btn-print").addEventListener("click", () => window.print());
+  document.getElementById("btn-print").addEventListener("click", openPrintPreview);
+  document.getElementById("print-go").addEventListener("click", () => window.print());
+  document.getElementById("print-close").addEventListener("click", closePrintPreview);
+  window.addEventListener("afterprint", closePrintPreview);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.getElementById("print-root").style.display === "flex") {
+      closePrintPreview();
+    }
+  });
 
   const version = await invoke("plugin:app|version").catch(() => null);
   if (version) document.getElementById("footer-version").textContent = `v${version}`;
@@ -222,6 +230,53 @@ async function reloadCurrentFile() {
   } catch (e) {
     console.error("リロード失敗:", e);
   }
+}
+
+// ── 印刷プレビュー（Paged.js でページ分割・ページ番号を付与） ────────
+async function openPrintPreview() {
+  const content = document.getElementById("content");
+  const printRoot = document.getElementById("print-root");
+  const printPages = document.getElementById("print-pages");
+  if (!content || !printRoot || !printPages) return;
+
+  if (typeof Paged === "undefined") {
+    console.error("Paged.js の読み込みに失敗したため通常印刷を行います");
+    window.print();
+    return;
+  }
+
+  const contentHTML = content.outerHTML;
+
+  printPages.innerHTML = "";
+  printRoot.style.display = "flex";
+  document.body.classList.add("print-preview-active");
+  // Paged.js は渡したスタイルシート中の #content 指定を [data-id="content"] に
+  // 書き換えて複製ページにも適用するため、CSS側で元の #content を隠すと複製側も
+  // 巻き添えで非表示になる。JS側で元要素だけを直接隠す。
+  content.style.display = "none";
+
+  try {
+    const previewer = new Paged.Previewer();
+    await previewer.preview(
+      contentHTML,
+      ["styles/base.css", "styles/print.css"],
+      printPages
+    );
+  } catch (e) {
+    console.error("印刷プレビュー生成失敗:", e);
+    closePrintPreview();
+    window.print();
+  }
+}
+
+function closePrintPreview() {
+  const content = document.getElementById("content");
+  const printRoot = document.getElementById("print-root");
+  const printPages = document.getElementById("print-pages");
+  if (content) content.style.display = "";
+  if (printRoot) printRoot.style.display = "none";
+  if (printPages) printPages.innerHTML = "";
+  document.body.classList.remove("print-preview-active");
 }
 
 // ── ドラッグ＆ドロップ ──────────────────────────────────────────────
